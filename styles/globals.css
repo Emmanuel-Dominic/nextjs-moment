@@ -105,3 +105,17 @@ a {
     color-scheme: dark;
   }
 }
+
+.navbar {
+  display: inline-flex;
+}
+
+ul.navbar li {
+  margin: 20px;
+  list-style: none;
+}
+
+ul.navbar li a {
+  color: whitesmoke;
+  text-decoration: none;
+}
