@@ -1,3 +1,5 @@
+import User from "../components/user";
+
 function UserList({users}) {
     return (
         <>
@@ -6,8 +8,7 @@ function UserList({users}) {
                 users && users.length>0 ? users.map(user => {
                     return (
                         <div key={user.id}>
-                            <h3>{user.name}</h3>
-                            <p>{user.email}</p>
+                            <User user={user} />
                         </div>
                     )
                 }) : "No users found"
