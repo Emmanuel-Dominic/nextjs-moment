@@ -18,5 +18,25 @@
             "price": 2500,
             "description": "Product 3 description"
         }
+    ],
+    "articles": [
+        {
+            "id": 1,
+            "title": "News Article 1",
+            "category": "sports",
+            "description": "News Article 1 description"
+        },
+        {
+            "id": 2,
+            "title": "News Article 2",
+            "category": "health",
+            "description": "News Article 2 description"
+        },
+        {
+            "id": 3,
+            "title": "News Article 3",
+            "category": "software",
+            "description": "News Article 3 description"
+        }
     ]
 }
