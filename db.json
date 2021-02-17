@@ -44,5 +44,28 @@
             "category": "software",
             "description": "News Article 3 description"
         }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "title": "Event 1",
+            "category": "technology",
+            "date": "Jan 2",
+            "description": "Event 1 description"
+        },
+        {
+            "id": 2,
+            "title": "Event 2",
+            "category": "food",
+            "date": "Feb 12",
+            "description": "Event 2 description"
+        },
+        {
+            "id": 3,
+            "title": "Event 3",
+            "category": "technology",
+            "date":"March 21",
+            "description": "Event 3 description"
+        }
     ]
 }
