@@ -6,7 +6,7 @@ export default function handler(req, res) {
     } else if(req.method === 'POST') {
         const comment = req.body.comment;
         const newComment = {
-            id: comments.length + 1,
+            id: comments.length>0 ? (comments.slice(-1)[0].id + 1) : 1,
             text: comment
         }
         comments.push(newComment)
