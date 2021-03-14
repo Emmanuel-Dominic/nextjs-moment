@@ -1,4 +1,10 @@
 import { useRouter } from "next/router";
+import styled from 'styled-components'
+
+const Title = styled.h1`
+  font-size: 50px;
+  color: ${({theme}) => theme.colors.primary};
+`
 
 function Home() {
     const router = useRouter();
@@ -10,8 +16,8 @@ function Home() {
 
     return (
     <>
-      <h1>Home Page</h1>
-      <button onClick={handleClick}>Place Order</button>
+      <Title>Home Page</Title>
+      <button onClick={handleClick} style={{color: "black", backgroundColor: "aqua"}}>Place Order</button>
     </>)
 }
 
