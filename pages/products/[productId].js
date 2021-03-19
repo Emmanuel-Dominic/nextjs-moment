@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 function Product({product}) {
@@ -8,10 +9,16 @@ function Product({product}) {
     }
 
     return (
-        <div>
-            <h2>{product.id} - {product.title} - ({product.price})</h2>
-            <p>{product.description}</p>
-        </div>
+        <>
+            <Head>
+                <title>{product.title}</title>
+                <meta name='description' content={product.description} />
+            </Head>
+            <div>
+                <h2>{product.id} - {product.title} - ({product.price})</h2>
+                <p>{product.description}</p>
+            </div>
+        </>
     )
 }
 
