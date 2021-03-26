@@ -45,6 +45,16 @@ const Navbar = () => {
                 <a>Product</a>
             </Link>
             </li>
+            <li>
+            <Link href="/api/auth/signin" className='nav-link'>
+                <a>SignIn</a>
+            </Link>
+            </li>
+            <li>
+            <Link href="/api/auth/signout" className='nav-link'>
+                <a>SignOut</a>
+            </Link>
+            </li>
         </ul>
     </nav>
   )
