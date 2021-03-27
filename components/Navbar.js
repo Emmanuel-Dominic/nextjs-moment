@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import {signIn, signOut, useSession } from 'next-auth/client'
 
 
 const Navbar = () => {
+  const [session, loading] = useSession()
   return (
     <nav>
-        <ul className='navbar'>
+        <ul className={`navbar ${loading ? 'loading': 'loaded'}`}>
             <li>
             <Link href="/" className='nav-link'>
                 <a>Home</a>
@@ -45,16 +47,26 @@ const Navbar = () => {
                 <a>Product</a>
             </Link>
             </li>
-            <li>
-            <Link href="/api/auth/signin" className='nav-link'>
-                <a>SignIn</a>
-            </Link>
-            </li>
-            <li>
-            <Link href="/api/auth/signout" className='nav-link'>
-                <a>SignOut</a>
-            </Link>
-            </li>
+            {!session && (
+                <li>
+                    <Link href="/api/auth/signin" className='nav-link'>
+                        <a onClick={e => {
+                            e.preventDefault()
+                            signIn('github')
+                        }}>SignIn</a>
+                    </Link>
+                </li>
+            )}
+            {session && (
+                <li>
+                    <Link href="/api/auth/signout" className='nav-link'>
+                        <a onClick={e => {
+                            e.preventDefault()
+                            signOut()
+                        }}>SignOut</a>
+                    </Link>
+                </li>
+            )}
         </ul>
     </nav>
   )
