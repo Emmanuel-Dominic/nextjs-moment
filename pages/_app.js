@@ -5,6 +5,7 @@ import '../styles/globals.css'
 import '../styles/layout.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { ThemeProvider } from 'styled-components'
+import { Provider } from 'next-auth/client';
 
 const theme = {
     colors: {
@@ -14,11 +15,11 @@ const theme = {
 
 function MyApp({ Component, pageProps }) {
     if (Component.getLayout) {
-        return Component.getLayout(<><Navbar /><Component {...pageProps} /></>)
+        return Component.getLayout(<Provider><Navbar /><Component {...pageProps} /></Provider>)
     }
 
     return (
-        <>
+        <Provider>
             <Head>
                 <title>Learn NextJs</title>
                 <meta name='description' content='Learn NextJs webdevelopment' />
@@ -28,7 +29,7 @@ function MyApp({ Component, pageProps }) {
                 <Component {...pageProps} />
                 <Footer />
             </ThemeProvider>
-        </>)
+        </Provider>)
 }
 
 export default MyApp
