@@ -52,6 +52,11 @@ const Navbar = () => {
                 <a>Product</a>
             </Link>
             </li>
+            <li>
+            <Link href="/articles" className='nav-link'>
+                <a>Articles</a>
+            </Link>
+            </li>
             {!session && (
                 <li>
                     <Link href="/api/auth/signin" className='nav-link'>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getSession } from 'next-auth/client'
 
 function NewsArticleList({articles}) {
     return (
@@ -19,13 +20,15 @@ function NewsArticleList({articles}) {
 
 export default NewsArticleList;
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
     const response = await fetch('http://localhost:4000/articles');
     const data = await response.json();
+    const session = await getSession(context)
 
     return {
         props: {
-            articles: data
+            session,
+            articles: session ? data : data.slice(0, 1)
         }
     }
 }

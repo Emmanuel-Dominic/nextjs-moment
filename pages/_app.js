@@ -15,11 +15,11 @@ const theme = {
 
 function MyApp({ Component, pageProps }) {
     if (Component.getLayout) {
-        return Component.getLayout(<Provider><Navbar /><Component {...pageProps} /></Provider>)
+        return Component.getLayout(<Provider session={pageProps.session}><Navbar /><Component {...pageProps} /></Provider>)
     }
 
     return (
-        <Provider>
+        <Provider session={pageProps.session}>
             <Head>
                 <title>Learn NextJs</title>
                 <meta name='description' content='Learn NextJs webdevelopment' />
