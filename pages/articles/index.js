@@ -25,10 +25,19 @@ export async function getServerSideProps(context) {
     const data = await response.json();
     const session = await getSession(context)
 
+    if (!session) {
+        return {
+            redirect: {
+                destination: `/api/auth/signin?callbackUrl=http://localhost:3000/articles`,
+                permanent: false
+            }
+        }
+    }
+
     return {
         props: {
             session,
-            articles: session ? data : data.slice(0, 1)
+            articles: data
         }
     }
 }
