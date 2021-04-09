@@ -21,14 +21,14 @@ function NewsArticleList({articles}) {
 export default NewsArticleList;
 
 export async function getServerSideProps(context) {
-    const response = await fetch('http://localhost:4000/articles');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/articles`);
     const data = await response.json();
     const session = await getSession(context)
 
     if (!session) {
         return {
             redirect: {
-                destination: `/api/auth/signin?callbackUrl=http://localhost:3000/articles`,
+                destination: `/api/auth/signin?callbackUrl=${process.env.PUBLIC_BASE_URL}/articles`,
                 permanent: false
             }
         }

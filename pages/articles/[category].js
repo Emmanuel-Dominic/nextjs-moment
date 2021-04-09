@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
     console.log(req.headers.cookie)
     res.setHeader('Set-Cookie', ['name=Manuel']) // on the second request this is diplayed
     const { category } = params;
-    const response = await fetch(`http://localhost:4000/articles?category=${category}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/articles?category=${category}`);
     const data = await response.json();
 
     return {

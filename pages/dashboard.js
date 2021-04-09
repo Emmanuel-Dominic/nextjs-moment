@@ -7,7 +7,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         async function fetchDashboardData() {
-            const response = await fetch('http://localhost:4000/dashboard')
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard`)
             const data = await response.json()
             const session = await getSession()
             if (!session) {
